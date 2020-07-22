@@ -36,7 +36,7 @@
                     <color key="currentPageIndicatorTintColor" red="0.96687883138656616" green="0.065240471047108908" blue="0.067503466967117537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Svi-3w-Csq" secondAttribute="bottom" id="4Er-0y-fwp"/>
                 <constraint firstAttribute="bottom" secondItem="ZMo-ij-WHL" secondAttribute="bottom" id="4wI-T9-5Ty"/>

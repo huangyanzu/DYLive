@@ -31,6 +31,7 @@ class AnchorGroup: NSObject {
     
     @objc  lazy var anchors: [AnchorModel] = [AnchorModel]()
     
+    @objc var icon_url:String = ""
     
     init(dict:[String : Any]) {
         super.init()
