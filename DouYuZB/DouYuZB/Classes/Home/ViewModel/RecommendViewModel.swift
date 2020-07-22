@@ -11,6 +11,7 @@ import UIKit
 class RecommendViewModel {
  
     lazy var anchorGroups:[AnchorGroup] = [AnchorGroup]()
+    lazy var cycleModels :[CycleModel] = [CycleModel]()
     
     private lazy var bigDataGroup:AnchorGroup = AnchorGroup()
     private lazy var prettyGroup:AnchorGroup = AnchorGroup()
@@ -124,7 +125,31 @@ extension RecommendViewModel{
         }
         
     }
+
+    func requestCycleData(finishCallback:@escaping()->()){
+        
+        NetworkTools.requestData(type: .GET, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version":"2.300"]) { (result) in
+            
+            guard let resultDict = result as?[String:Any] ,let dataArray = resultDict["data"] as? [[String:Any]]  else{return}
+            
+            
+            for dict in dataArray{
+                
+              self.cycleModels.append(CycleModel(dict:dict)) 
+            }
+            
+            
+            
+            finishCallback()
+        }
+        
+    }
+
 }
+
+//http://www.douyutv.com/api/v1/slide/6?version=2.300
+
+
 
 
 /*

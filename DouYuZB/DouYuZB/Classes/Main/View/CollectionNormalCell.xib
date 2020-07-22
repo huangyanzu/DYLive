@@ -67,7 +67,7 @@
             <size key="customSize" width="207" height="165"/>
             <connections>
                 <outlet property="iconImageView" destination="Wje-9K-z8C" id="qRj-JG-C6z"/>
-                <outlet property="nickNameLabel" destination="lTL-fL-5BT" id="bLA-Wn-1CQ"/>
+                <outlet property="nickName" destination="lTL-fL-5BT" id="80X-WM-XnJ"/>
                 <outlet property="onlineBtn" destination="7IC-c0-HoL" id="g4h-gy-cco"/>
                 <outlet property="roomNameLabel" destination="N5K-9K-mXT" id="FuP-yl-zDM"/>
             </connections>

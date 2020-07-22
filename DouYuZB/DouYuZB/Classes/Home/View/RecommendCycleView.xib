@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecommendCycleView" customModule="DouYuZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Svi-3w-Csq">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jOd-20-ZeC">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="4VF-Rm-dmf"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Iuh-EF-EDi"/>
+                    </connections>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZMo-ij-WHL">
+                    <rect key="frame" x="365" y="113" width="39" height="37"/>
+                    <color key="pageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <color key="currentPageIndicatorTintColor" red="0.96687883138656616" green="0.065240471047108908" blue="0.067503466967117537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Svi-3w-Csq" secondAttribute="bottom" id="4Er-0y-fwp"/>
+                <constraint firstAttribute="bottom" secondItem="ZMo-ij-WHL" secondAttribute="bottom" id="4wI-T9-5Ty"/>
+                <constraint firstItem="dQk-QI-5d4" firstAttribute="trailing" secondItem="Svi-3w-Csq" secondAttribute="trailing" id="BDO-hh-BcN"/>
+                <constraint firstItem="Svi-3w-Csq" firstAttribute="leading" secondItem="dQk-QI-5d4" secondAttribute="leading" id="MGL-eh-lFV"/>
+                <constraint firstAttribute="trailing" secondItem="ZMo-ij-WHL" secondAttribute="trailing" constant="10" id="Mbm-BK-49u"/>
+                <constraint firstItem="Svi-3w-Csq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="epS-SC-9oQ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dQk-QI-5d4"/>
+            <connections>
+                <outlet property="collectionView" destination="Svi-3w-Csq" id="rE7-Aa-IhF"/>
+                <outlet property="pageControl" destination="ZMo-ij-WHL" id="LCK-9N-lxt"/>
+            </connections>
+            <point key="canvasLocation" x="129" y="-39"/>
+        </view>
+    </objects>
+</document>

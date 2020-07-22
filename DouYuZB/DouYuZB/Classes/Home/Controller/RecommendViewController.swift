@@ -15,6 +15,8 @@ private let kItemW = ( kScreenW - 3 * kItemMargin ) / 2
 private let kNormalItemH = kItemW * 3 / 4
 private let kPrettyItemH = kItemW * 4 / 3
 private let kHeaderViewH :CGFloat = 50
+private let kCycleViewH = kScreenW * 3 / 8
+
 
 private let kNormalCellID = "kNormalCellID"
 private let kPrettyCellID = "kPrettyCellID"
@@ -56,6 +58,14 @@ class RecommendViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var cycleView:RecommendCycleView = {
+        let cycleView = RecommendCycleView.recommendCycleView()
+        
+        cycleView.frame = CGRect(x:  0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        
+        return cycleView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,7 +89,8 @@ extension RecommendViewController {
     
     view.addSubview(collectionView)
     
-    
+        collectionView.addSubview(cycleView)
+       collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
     }
     
     
@@ -106,26 +117,23 @@ extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDel
         let group = recommendVM.anchorGroups[indexPath.section]
         let anchor = group.anchors[indexPath.item]
         
-       
+        var cell : CollectionBaseCell
         
         if indexPath.section == 1 {
-           let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
+    
             
-            cell.anchor = anchor
             
-            
-            return cell
         }else{
-          let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
+           cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
             
-            cell.anchor = anchor
-            
-            
-            return cell
+     
+           
         }
         
+        cell.anchor = anchor
         
-        
+         return cell
         
     }
     
@@ -154,9 +162,18 @@ extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDel
 extension RecommendViewController{
     private func loadData(){
         
+        
+        
+        
         recommendVM.requestData {
             self.collectionView.reloadData()
         }
         
+        recommendVM.requestCycleData {
+            
+            self.cycleView.cycleModels = self.recommendVM.cycleModels
+        
+        
     }
+ }
 }
